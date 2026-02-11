@@ -4,18 +4,13 @@ from chaos_engine import router as chaos_router
 app = FastAPI(
     title="Chaos Engine API",
     version="2.0",
-    description="Production-ready Chaos Engine backend."
+    description="Chaos Module backend for live game volatility and edge computation."
 )
 
-# ---------------------------------------------------------
-# Health Check
-# ---------------------------------------------------------
-@app.get("/")
-def root():
+
+@app.get("/live")
+def live():
     return {"status": "online", "service": "chaos-module"}
 
-# ---------------------------------------------------------
-# Mount Chaos Engine Router
-# ---------------------------------------------------------
-app.include_router(chaos_router)
 
+app.include_router(chaos_router)
