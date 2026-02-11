@@ -7,10 +7,12 @@ app = FastAPI(
     description="Chaos Module backend for live game volatility and edge computation."
 )
 
+@app.get("/")
+def root():
+    return {"status": "ok", "message": "Chaos Module API is running"}
 
 @app.get("/live")
 def live():
     return {"status": "online", "service": "chaos-module"}
-
 
 app.include_router(chaos_router)
