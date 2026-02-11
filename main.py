@@ -1,8 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# Import your routers
-from chaos_engine import router as live_router
 from models import MLFeatureSnapshot
 from chaos_engine import (
     compute_live_state,
@@ -18,7 +16,7 @@ app = FastAPI(
     description="Live volatility engine + ML snapshot pipeline"
 )
 
-# CORS (optional but recommended)
+# CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
